@@ -1,0 +1,22 @@
+[2024-03-31T18:02:49.695+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: chapter4_stocksense_bashoperator.get_data scheduled__2024-03-30T15:00:00+00:00 [queued]>
+[2024-03-31T18:02:49.702+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: chapter4_stocksense_bashoperator.get_data scheduled__2024-03-30T15:00:00+00:00 [queued]>
+[2024-03-31T18:02:49.703+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-31T18:02:49.714+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): get_data> on 2024-03-30 15:00:00+00:00
+[2024-03-31T18:02:49.719+0000] {standard_task_runner.py:60} INFO - Started process 1853 to run task
+[2024-03-31T18:02:49.721+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'chapter4_stocksense_bashoperator', 'get_data', 'scheduled__2024-03-30T15:00:00+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/pages_dag.py', '--cfg-path', '/tmp/tmp5gjdfnhh']
+[2024-03-31T18:02:49.723+0000] {standard_task_runner.py:88} INFO - Job 77: Subtask get_data
+[2024-03-31T18:02:49.759+0000] {task_command.py:423} INFO - Running <TaskInstance: chapter4_stocksense_bashoperator.get_data scheduled__2024-03-30T15:00:00+00:00 [running]> on host f8f92d4c9559
+[2024-03-31T18:02:49.798+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:207: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2024-03-31T18:02:49.829+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='chapter4_stocksense_bashoperator' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2024-03-30T15:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-30T15:00:00+00:00'
+[2024-03-31T18:02:49.831+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-31T18:02:49.832+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -o /opt/***/wikipageviews.gz https://dumps.wikimedia.org/other/pageviews/2024/2024-pageviews-20240330-150000.gz']
+[2024-03-31T18:02:49.842+0000] {subprocess.py:86} INFO - Output:
+[2024-03-31T18:02:49.849+0000] {subprocess.py:93} INFO -   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2024-03-31T18:02:49.850+0000] {subprocess.py:93} INFO -                                  Dload  Upload   Total   Spent    Left  Speed
+[2024-03-31T18:02:50.197+0000] {subprocess.py:93} INFO -   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   153  100   153    0     0    438      0 --:--:-- --:--:-- --:--:--   438100   153  100   153    0     0    438      0 --:--:-- --:--:-- --:--:--   438
+[2024-03-31T18:02:50.199+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-31T18:02:50.220+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=chapter4_stocksense_bashoperator, task_id=get_data, execution_date=20240330T150000, start_date=20240331T180249, end_date=20240331T180250
+[2024-03-31T18:02:50.255+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-31T18:02:50.268+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,44 @@
+[2024-04-01T12:27:26.396+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: chapter4_stocksense_bashoperator.write_to_postgres manual__2024-04-01T12:26:48.398277+00:00 [queued]>
+[2024-04-01T12:27:26.400+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: chapter4_stocksense_bashoperator.write_to_postgres manual__2024-04-01T12:26:48.398277+00:00 [queued]>
+[2024-04-01T12:27:26.401+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-04-01T12:27:26.409+0000] {taskinstance.py:2217} INFO - Executing <Task(PostgresOperator): write_to_postgres> on 2024-04-01 12:26:48.398277+00:00
+[2024-04-01T12:27:26.412+0000] {standard_task_runner.py:60} INFO - Started process 749 to run task
+[2024-04-01T12:27:26.414+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'chapter4_stocksense_bashoperator', 'write_to_postgres', 'manual__2024-04-01T12:26:48.398277+00:00', '--job-id', '148', '--raw', '--subdir', 'DAGS_FOLDER/pages_dag.py', '--cfg-path', '/tmp/tmp7uy59md9']
+[2024-04-01T12:27:26.415+0000] {standard_task_runner.py:88} INFO - Job 148: Subtask write_to_postgres
+[2024-04-01T12:27:26.438+0000] {task_command.py:423} INFO - Running <TaskInstance: chapter4_stocksense_bashoperator.write_to_postgres manual__2024-04-01T12:26:48.398277+00:00 [running]> on host d7148197e99c
+[2024-04-01T12:27:26.478+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='chapter4_stocksense_bashoperator' AIRFLOW_CTX_TASK_ID='write_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T12:26:48.398277+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-01T12:26:48.398277+00:00'
+[2024-04-01T12:27:26.479+0000] {sql.py:276} INFO - Executing: INSERT INTO pageview_counts VALUES ('Apple', 38, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Facebook', 404, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Google', 420, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Microsoft', 114, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Amazon', 4, '2024-04-01 12:26:48.398277+00:00');
+[2024-04-01T12:27:26.483+0000] {base.py:83} INFO - Using connection ID 'my_postgres' for task execution.
+[2024-04-01T12:27:26.488+0000] {base.py:83} INFO - Using connection ID 'my_postgres' for task execution.
+[2024-04-01T12:27:26.490+0000] {sql.py:457} INFO - Running statement: INSERT INTO pageview_counts VALUES ('Apple', 38, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Facebook', 404, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Google', 420, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Microsoft', 114, '2024-04-01 12:26:48.398277+00:00');
+INSERT INTO pageview_counts VALUES ('Amazon', 4, '2024-04-01 12:26:48.398277+00:00');, parameters: None
+[2024-04-01T12:27:26.490+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 404, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 462, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedTable: relation "pageview_counts" does not exist
+LINE 1: INSERT INTO pageview_counts VALUES ('Apple', 38, '2024-04-01...
+                    ^
+
+[2024-04-01T12:27:26.497+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=chapter4_stocksense_bashoperator, task_id=write_to_postgres, execution_date=20240401T122648, start_date=20240401T122726, end_date=20240401T122726
+[2024-04-01T12:27:26.504+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 148 for task write_to_postgres (relation "pageview_counts" does not exist
+LINE 1: INSERT INTO pageview_counts VALUES ('Apple', 38, '2024-04-01...
+                    ^
+; 749)
+[2024-04-01T12:27:26.546+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-04-01T12:27:26.556+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

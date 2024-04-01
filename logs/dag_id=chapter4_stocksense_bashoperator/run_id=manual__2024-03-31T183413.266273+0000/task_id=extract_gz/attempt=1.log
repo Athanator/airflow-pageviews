@@ -1,0 +1,28 @@
+[2024-03-31T18:34:14.703+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: chapter4_stocksense_bashoperator.extract_gz manual__2024-03-31T18:34:13.266273+00:00 [queued]>
+[2024-03-31T18:34:14.708+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: chapter4_stocksense_bashoperator.extract_gz manual__2024-03-31T18:34:13.266273+00:00 [queued]>
+[2024-03-31T18:34:14.709+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-31T18:34:14.717+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): extract_gz> on 2024-03-31 18:34:13.266273+00:00
+[2024-03-31T18:34:14.723+0000] {standard_task_runner.py:60} INFO - Started process 2471 to run task
+[2024-03-31T18:34:14.725+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'chapter4_stocksense_bashoperator', 'extract_gz', 'manual__2024-03-31T18:34:13.266273+00:00', '--job-id', '106', '--raw', '--subdir', 'DAGS_FOLDER/pages_dag.py', '--cfg-path', '/tmp/tmpdyw1j034']
+[2024-03-31T18:34:14.727+0000] {standard_task_runner.py:88} INFO - Job 106: Subtask extract_gz
+[2024-03-31T18:34:14.752+0000] {task_command.py:423} INFO - Running <TaskInstance: chapter4_stocksense_bashoperator.extract_gz manual__2024-03-31T18:34:13.266273+00:00 [running]> on host f8f92d4c9559
+[2024-03-31T18:34:14.795+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='chapter4_stocksense_bashoperator' AIRFLOW_CTX_TASK_ID='extract_gz' AIRFLOW_CTX_EXECUTION_DATE='2024-03-31T18:34:13.266273+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-31T18:34:13.266273+00:00'
+[2024-03-31T18:34:14.796+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-31T18:34:14.796+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'gunzip --force /opt/***/wikipageviews.gz']
+[2024-03-31T18:34:14.802+0000] {subprocess.py:86} INFO - Output:
+[2024-03-31T18:34:14.804+0000] {subprocess.py:93} INFO - 
+[2024-03-31T18:34:14.805+0000] {subprocess.py:93} INFO - gzip: /opt/***/wikipageviews.gz: not in gzip format
+[2024-03-31T18:34:14.805+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-03-31T18:34:14.811+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-03-31T18:34:14.813+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=chapter4_stocksense_bashoperator, task_id=extract_gz, execution_date=20240331T183413, start_date=20240331T183414, end_date=20240331T183414
+[2024-03-31T18:34:14.819+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 106 for task extract_gz (Bash command failed. The command returned a non-zero exit code 1.; 2471)
+[2024-03-31T18:34:14.857+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-03-31T18:34:14.868+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
